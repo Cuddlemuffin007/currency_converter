@@ -1,0 +1,7 @@
+*pycache*
+.idea/
+card_adder.py
+file_for_test.py
+test_card_adder.py
+test_card_adder_better.py
+
