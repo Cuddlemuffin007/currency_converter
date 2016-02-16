@@ -4,6 +4,30 @@ class Money:
         self.amount = amount
         self.denomination = denomination
 
+    def __add__(self, other):
+        if self.denomination == other.denomination:
+            return self.amount + other.amount
+        else:
+            return self.amount + other.convert_currency()
+
+    def __sub__(self, other):
+        if self.denomination == other.denomination:
+            return self.amount - other.amount
+        else:
+            return self.amount - other.convert_currency()
+
+    def __gt__(self, other):
+        if self.denomination == other.denomination:
+            return self.amount > other.amount
+        else:
+            return self.amount > other.convert_currency()
+
+    def __lt__(self, other):
+        if self.denomination == other.denomination:
+            return self.amount < other.amount
+        else:
+            return self.amount < other.convert_currency()
+
     def convert_currency(self):
         if type(self.amount) == type([]) and self.denomination == "USD":
             return self.usd_to_euro_list(self.amount)
