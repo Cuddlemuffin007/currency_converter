@@ -7,26 +7,22 @@ class Money:
     def __add__(self, other):
         if self.denomination == other.denomination:
             return self.amount + other.amount
-        else:
-            return self.amount + other.convert_currency()
+        return self.amount + other.convert_currency()
 
     def __sub__(self, other):
         if self.denomination == other.denomination:
             return self.amount - other.amount
-        else:
-            return self.amount - other.convert_currency()
+        return self.amount - other.convert_currency()
 
     def __gt__(self, other):
         if self.denomination == other.denomination:
             return self.amount > other.amount
-        else:
-            return self.amount > other.convert_currency()
+        return self.amount > other.convert_currency()
 
     def __lt__(self, other):
         if self.denomination == other.denomination:
             return self.amount < other.amount
-        else:
-            return self.amount < other.convert_currency()
+        return self.amount < other.convert_currency()
 
     def convert_currency(self):
         if type(self.amount) == type([]) and self.denomination == "USD":
@@ -45,7 +41,7 @@ class Money:
         return [self.usd_to_euro(usd_amount) for usd_amount in usd_list]
 
     def euro_to_usd(self, amount):
-        return round((amount *1.11), 2)
+        return round((amount * 1.11), 2)
 
     def euro_to_usd_list(self, euro_list):
         return [self.euro_to_usd(euro_amount) for euro_amount in euro_list]
